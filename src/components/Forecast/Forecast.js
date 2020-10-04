@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Conditions from '../Conditions/Conditions';
 import classes from './Forecast.module.css';
 
+const API_KEY = `${process.env.REACT_APP_API_KEY}`
 const Forecast = () => {
     let [city, setCity] = useState('');
     let [unit, setUnit] = useState('imperial');
@@ -27,7 +28,7 @@ const Forecast = () => {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-          "x-rapidapi-key": process.env.REACT_APP_API_KEY
+          "x-rapidapi-key": API_KEY
         }
       })
       .then(response => response.json())
